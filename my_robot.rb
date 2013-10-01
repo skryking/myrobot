@@ -10,7 +10,7 @@ work do
   puts "Firmata version #{board.version}"
 
   while true
-    if which 
+    if @which 
       servo.move(100)
       puts "move forward"
       @which = false
