@@ -3,7 +3,7 @@ require 'artoo'
 connection :firmata, :adaptor => :firmata, :port => '/dev/ttyACM0'
 device :board
 device :servo, :driver => :servo, :pin => 3 # pin must be a PWM pin
-which = false
+@which = false
 
 work do
   puts "Firmware name #{board.firmware_name}"
@@ -13,12 +13,13 @@ work do
     if which 
       servo.move(100)
       puts "move forward"
+      @which = false
     else
         servo.move(70)
         puts "move backwards"
+        @which = true
    end
    
-   which != which
-   sleep(5)
+    sleep(5)
 end
 end
