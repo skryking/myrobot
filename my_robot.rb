@@ -9,12 +9,16 @@ work do
   puts "Firmware name #{board.firmware_name}"
   puts "Firmata version #{board.version}"
 
-  if which 
-    servo.move(100)
-  else
-      servo.move(70)
- end
- 
- which != which
- sleep(5)
+  while true
+    if which 
+      servo.move(100)
+      puts "move forward"
+    else
+        servo.move(70)
+        puts "move backwards"
+   end
+   
+   which != which
+   sleep(5)
+end
 end
